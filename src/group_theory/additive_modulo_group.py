@@ -14,11 +14,11 @@ class AdditiveModuloGroup:
         return (
             self._has_identity(elements)
             and self._is_subset(elements)
-            and self._is_closed(elements)
+            and self._is_closure(elements)
             and self._all_has_inverse(elements)
         )
 
-    def _is_closed(self, elements: set[int]) -> bool:
+    def _is_closure(self, elements: set[int]) -> bool:
         for x, y in itertools.combinations_with_replacement(elements, 2):
             if (x + y) % self._order not in elements:
                 return False
