@@ -19,7 +19,7 @@ class AdditiveModuloGroup:
         )
 
     def _is_closed(self, elements: set[int]) -> bool:
-        for x, y in itertools.combinations(elements, 2):
+        for x, y in itertools.combinations_with_replacement(elements, 2):
             if (x + y) % self._order not in elements:
                 return False
         return True
