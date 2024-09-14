@@ -1,3 +1,4 @@
+import copy
 import itertools
 
 
@@ -30,13 +31,18 @@ class AdditiveModuloGroup:
         return self._identity in elements
 
     def _all_has_inverse(self, elements: set[int]) -> bool:
-        elements_ = list(elements)
-        n = len(elements_)
-        for i in range(n):
-            for j in range(i + 1, n):
-                if self._is_inverse(elements_[i], elements_[j]):
-                    break
-            return False
+        # identity is its own inverse, no checking is required
+        elements_ = copy.deepcopy(elements)
+        elements_.remove(self._identity)
+
+        element_has_inverse = {i: False for i in elements_}
+
+        for x, y in itertools.combinations(elements_, 2):
+            if self._is_inverse(x, y):
+                element_has_inverse[x] = True
+                element_has_inverse[y] = True
+
+        return all(element_has_inverse.values())
 
     def _is_inverse(self, x: int, y: int) -> bool:
         return (x + y) % self._order == self._identity
