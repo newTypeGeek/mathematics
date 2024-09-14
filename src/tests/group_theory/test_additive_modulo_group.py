@@ -164,5 +164,5 @@ def test_only_two_candidates_are_subgroups(group_order_seven, seven_order_sub_gr
     for candidate in seven_order_sub_group_candidates:
         subgroup_count += group_order_seven.is_subgroup(candidate)
 
-    # this is due to Langrange's theorem
+    # this is due to Lagrange's Theorem
     assert subgroup_count == 2
