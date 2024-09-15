@@ -1,4 +1,4 @@
-from number_theory.basic import gcd
+from number_theory.basic import gcd, lcm
 
 
 def test_divisible_by_gcd():
@@ -36,3 +36,15 @@ def test_gcd_is_associative():
     b = 534202
     c = 13942
     assert gcd(a, gcd(b, c)) == gcd(gcd(a, b), c)
+
+
+def test_lcm_result():
+    a = 4
+    b = 6
+    assert lcm(a, b) == 12
+
+
+def test_lcm_type():
+    a = 4
+    b = 6
+    assert isinstance(lcm(a, b), int)
