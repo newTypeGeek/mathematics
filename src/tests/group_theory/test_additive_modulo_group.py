@@ -168,6 +168,11 @@ def test_only_two_candidates_are_subgroups(group_order_seven, seven_order_sub_gr
     assert subgroup_count == 2
 
 
+def test_empty_set_for_subgroup_raise_error(group_order_seven):
+    with pytest.raises(AssertionError):
+        group_order_seven.is_subgroup(set())
+
+
 def test_negative_order_raises_error():
     with pytest.raises(AssertionError):
         AdditiveModuloGroup(-1)
