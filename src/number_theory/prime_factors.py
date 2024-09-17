@@ -1,4 +1,6 @@
 def brute_force_prime_factors(n: int) -> list[int]:
+    assert n > 1, "n should be greater than 1"
+
     prime_factors = []
 
     # prime factor candidates 2, 3, ..., n
