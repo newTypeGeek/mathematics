@@ -18,4 +18,4 @@ def test_for_two():
 def test_for_one_raises_assertion_error():
     n = 1
     with pytest.raises(AssertionError):
-        prime_factors = brute_force_prime_factors(n)
+        brute_force_prime_factors(n)
