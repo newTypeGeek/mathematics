@@ -11,6 +11,18 @@ class MultiplicativeModuloGroup:
         self._elements = self._generate_group_elements()
         self._identity = 1
 
+    @property
+    def order(self) -> int:
+        return self._order
+
+    @property
+    def identity(self) -> int:
+        return self._identity
+
+    @property
+    def elements(self) -> set[int]:
+        return self._elements
+
     def is_subgroup(self, elements: set[int]) -> bool:
         assert len(elements) > 0, f"Input {elements} must not be empty set"
         return (
