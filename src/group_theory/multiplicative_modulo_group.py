@@ -6,7 +6,7 @@ from number_theory.basic import gcd
 
 class MultiplicativeModuloGroup:
     def __init__(self, order: int) -> None:
-        assert order > 0, "Order must be greater than 0"
+        assert order > 1, "Order must be greater than 1"
         self._order = order
         self._elements = self._generate_group_elements()
         self._identity = 1
