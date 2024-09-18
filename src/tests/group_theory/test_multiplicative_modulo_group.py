@@ -24,3 +24,13 @@ def test_correct_elements(group_order_ten, ten_order_group_elements) -> None:
 
 def test_itself_is_subgroup(group_order_ten) -> None:
     assert group_order_ten.is_subgroup(group_order_ten.elements)
+
+
+def test_empty_set_for_subgroup_raise_error(group_order_ten):
+    with pytest.raises(AssertionError):
+        group_order_ten.is_subgroup(set())
+
+
+def test_one_order_raises_error():
+    with pytest.raises(AssertionError):
+        MultiplicativeModuloGroup(1)
