@@ -51,7 +51,7 @@ class MultiplicativeModuloGroup:
 
         element_has_inverse = {i: False for i in elements_}
 
-        for x, y in itertools.combinations(elements_, 2):
+        for x, y in itertools.combinations_with_replacement(elements_, 2):
             if self._is_inverse(x, y):
                 element_has_inverse[x] = True
                 element_has_inverse[y] = True
